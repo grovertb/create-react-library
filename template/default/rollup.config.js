@@ -5,20 +5,19 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
-
 import pkg from './package.json'
 
 export default {
-  input: 'src/index.js',
+  input : 'src/index.js',
   output: [
     {
-      file: pkg.main,
-      format: 'cjs',
+      file     : pkg.main,
+      format   : 'cjs',
       sourcemap: true
     },
     {
-      file: pkg.module,
-      format: 'es',
+      file     : pkg.module,
+      format   : 'es',
       sourcemap: true
     }
   ],
@@ -27,11 +26,10 @@ export default {
     postcss({
       modules: true
     }),
-    url({ exclude: ['**/*.svg'] }),
+    url({ exclude: [ '**/*.svg' ] }),
     svgr(),
     babel({
-      exclude: 'node_modules/**',
-      plugins: [ '@babel/external-helpers' ]
+      exclude: 'node_modules/**'
     }),
     resolve(),
     commonjs()

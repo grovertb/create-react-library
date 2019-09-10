@@ -1,5 +1,5 @@
 {
-  "name": "{{name}}",
+  "name": "testing",
   "version": "1.0.0",
   "description": "{{description}}",
   "author": "{{author}}",
@@ -17,8 +17,8 @@
     "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepare": "{{manager}} run build",
-    "predeploy": "cd example && {{manager}} install && {{manager}} run build",
+    "prepare": "yarn run build",
+    "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build"
   },
   "devDependencies": {
